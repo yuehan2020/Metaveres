@@ -14,7 +14,7 @@
           <el-sub-menu index="2">
             <template #title>更多</template>
             <el-menu-item index="2-1">会员</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
+            <el-menu-item index="2-2">傻逼</el-menu-item>
             <el-menu-item index="2-3">item three</el-menu-item>
             <el-sub-menu index="2-4">
               <template #title>item four</template>
