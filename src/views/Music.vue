@@ -35,6 +35,7 @@
       </el-header>
 
       <el-main>
+        <div>音乐推荐</div>
         <!-- 歌曲列表 -->
         <div class="musicLeft">
           <ul>
