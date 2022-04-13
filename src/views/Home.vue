@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <el-container>
-      <el-header>
+
 
         <!-- 导航菜单 -->
         <el-menu
@@ -10,6 +9,7 @@
           mode="horizontal"
           @select="handleSelect"
         >
+          <img class="logo" src="../assets/yasuo.png">
           <el-menu-item index="1">首页</el-menu-item>
           <el-sub-menu index="2">
             <template #title>更多</template>
@@ -24,10 +24,10 @@
             </el-sub-menu>
           </el-sub-menu>
         </el-menu>
-      </el-header>
+
 
       <!-- 主体区域 -->
-      <el-main>
+
 
         <el-space :size="large" wrap>
             <!-- 音乐卡 -->
@@ -38,10 +38,10 @@
             <Car title="小涵商城后台管理" banner="https://z3.ax1x.com/2021/11/16/IfT21s.png" ToGo="/shop" ></Car>
             <Car title="小涵代码练习" banner="https://img2.baidu.com/it/u=4156000803,3648738866&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" ToGo="/codep" ></Car>
         </el-space>
-      </el-main>
+
 
       <!-- 底部区域 -->
-      <el-footer>
+
         <div style="width:300px;margin:0 auto; padding:20px 0;">
             <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011502001329"
                 style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img
@@ -52,8 +52,7 @@
             <a target="_blank" href="https://beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                 <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂ICP备2021009303号-1</p> </a>
         </div>
-        </el-footer>
-    </el-container>
+
   </div>
 </template>
 
@@ -88,6 +87,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.home {
+  /deep/ .el-menu-demo {
+    width: 100vw;
+    top: 0;
+    position: fixed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+  }
+}
 a {
   text-decoration: none;
   color: #909399;
@@ -129,5 +136,10 @@ a:hover {
 }
 .box-card {
   width: 30vw;
+}
+// logo样式
+.logo {
+  width: 140px;
+  height: 60px;
 }
 </style>
