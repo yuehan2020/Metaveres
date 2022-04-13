@@ -8,6 +8,9 @@ import 'element-plus/dist/index.css'
 
 import axios from 'axios'
 
+// 引入公共样式
+import "../styles/index.less"
+
 // 字体文件
 
 // 引入字体
