@@ -142,6 +142,7 @@ export default {
     width: 100%;
     margin-bottom: 90px;
     /deep/ .el-menu-demo {
+      padding: 0 24px;
       width: 100vw;
       top: 0;
       position: fixed;
