@@ -9,10 +9,12 @@ module.exports = {
       '/api': {
         target: 'https://autumnfish.cn/',
         // secure:true,
-        changeOrign: true,// 请求头hots
+        changeOrign: true, // 请求头hots
         ws: true,
         pathRewrite: { '^/api': '' }
       }
     }
-  }
+  },
+
+  lintOnSave: false
 }

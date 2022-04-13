@@ -12,6 +12,7 @@ const routes = [
     ]
   },
   { path: '/codep', name: 'codep', component: () => import('../views/CodeP.vue') },
+    // 音乐路由
   {
     path: '/music',
     name: 'Music',
