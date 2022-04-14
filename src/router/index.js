@@ -39,4 +39,14 @@ const router = createRouter({
   routes
 })
 
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    window.location.href = '/mobile.html/'
+    return
+  }
+  next()
+})
+
 export default router
