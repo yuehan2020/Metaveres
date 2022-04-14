@@ -1,12 +1,10 @@
 <template>
-  <div>
-      <h2>666</h2>
-  </div>
+  <div>66</div>
 </template>
 
 <script>
 export default {
-    name: "mobileHome",
+    name:'HomeM'
 }
 </script>
 

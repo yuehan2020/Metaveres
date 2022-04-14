@@ -109,7 +109,7 @@
 <script>
 // import { defineComponent } from 'vue'
 // import { ElButton } from 'element-plus'
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Car from "../components/Car.vue";
 // @ is an alias to /src
 
@@ -117,6 +117,12 @@ export default {
     name: "Home",
     components: {
         Car,
+    },
+    mounted() {
+       
+    },
+    methods: {
+
     },
     setup() {
         const activeIndex = ref("1");
@@ -131,6 +137,8 @@ export default {
             handleSelect,
             // picurl1
         };
+
+
     },
 };
 </script>
