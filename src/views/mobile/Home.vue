@@ -16,14 +16,17 @@
                     <el-col :span="24">
                         <el-card :body-style="{ padding: '0px' }">
                             <img
-                                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                                src="https://z3.ax1x.com/2021/11/16/IfDVvd.png"
                                 class="image"
                             />
                             <div style="padding: 14px">
                                 <span>小涵音乐</span>
                                 <div class="bottom">
                                     <time class="time">{{ currentDate }}</time>
-                                    <el-button type="text" class="button"
+                                    <el-button
+                                        type="text"
+                                        class="button"
+                                        @click="ToMusic"
                                         >点击进入</el-button
                                     >
                                 </div>
@@ -69,6 +72,12 @@ export default {
     data() {
         return {
             currentDate: new Date()
+        }
+    },
+    methods: {
+        ToMusic() {
+
+            this.$router.push({ name: 'MusicM' })
         }
     },
 }
@@ -136,6 +145,7 @@ export default {
 
             .image {
                 width: 100%;
+                height: 230px ;
                 display: block;
             }
         }
