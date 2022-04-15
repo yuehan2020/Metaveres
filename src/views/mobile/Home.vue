@@ -2,12 +2,16 @@
     <div class="HomeM d-flex">
         <header class="full_page">
             <!-- 导航菜单 -->
-            <nav id="nav" class="d-flex">
-                <span class="logo_name">
-                    <a href="#">YueHan</a>
-                </span>
-                <div class="menus"></div>
-            </nav>
+            <Nav></Nav>
+
+            <!-- 中心信息 -->
+            <div class="site_info">
+                <h1 class="site_title">YHan</h1>
+                <div class="site_subtitle">
+                    <span class="subtitle">{{ showSentence }}</span>
+                    <span class="typer-cursor">|</span>
+                </div>
+            </div>
         </header>
         <!-- 主体内容 -->
         <main class="layout d-flex">
@@ -34,25 +38,6 @@
                         </el-card>
                     </el-col>
                 </el-row>
-                <el-row>
-                    <el-col :span="24">
-                        <el-card :body-style="{ padding: '0px' }">
-                            <img
-                                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                                class="image"
-                            />
-                            <div style="padding: 14px">
-                                <span>小涵后台管理系统</span>
-                                <div class="bottom">
-                                    <time class="time">{{ currentDate }}</time>
-                                    <el-button type="text" class="button"
-                                        >点击进入</el-button
-                                    >
-                                </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                </el-row>
             </div>
             <div class="aside_content"></div>
         </main>
@@ -63,23 +48,76 @@
                 <el-backtop :right="10" :bottom="100" />
             </div>
         </div>
+
+        <!-- 侧边菜单 -->
+        <el-drawer
+            v-model="store.state.ShowDrawer"
+            title="要快乐"
+            direction="rtl"
+            size="75%"
+            
+        >
+            <span>Hi</span>
+        </el-drawer>
     </div>
 </template>
 
 <script>
+import {useStore} from 'vuex'
+import {toRef,reactive } from 'vue'
+import Nav from "../../components/mobile/Nav.vue"
+
 export default {
     name: 'HomeM',
+    setup(){
+        const store = useStore()
+        return {
+            store
+        }
+    },
     data() {
         return {
-            currentDate: new Date()
+            currentDate: new Date(),
+            Sentence: '', //今日诗词
+            showSentence: '',
+            index: 0,
         }
+    },
+    mounted() {
+
+        this.loadSentence()
+
+
+        setInterval(() => {
+
+            this.autoTyping()
+
+        }, 300)
     },
     methods: {
         ToMusic() {
 
             this.$router.push({ name: 'MusicM' })
+        },
+        // 加载今日诗词
+        loadSentence() {
+            const jinrishici = require('jinrishici');
+            jinrishici.load(result => {
+                this.Sentence = result.data.content
+            }, err => {
+                console.log(err);
+            })
+        },
+        // 打字效果
+        autoTyping() {
+            this.index++
+            this.showSentence = this.Sentence.slice(0, this.index)
+            // this.index = this.showSentence === this.Sentence ? 0 : this.index
         }
     },
+    components: {
+        Nav
+    }
 }
 </script>
 
@@ -89,29 +127,32 @@ export default {
     min-height: 100vh;
     .full_page {
         height: 100vh;
-        background-image: url("~@/assets/bgM.jpg");
+        background-color: pink;
+        background-image: url("~@/assets/bgM.webp");
+
         background-repeat: no-repeat;
         background-size: cover;
         transition: all 0.5s;
-        // 导航菜单样式
-        #nav {
+        .site_info {
             position: absolute;
-            top: 0;
+            top: 43%;
+            padding: 0 10px;
             width: 100%;
-            height: 60px;
-            opacity: 1;
-            filter: none;
-            padding: 0 16px;
-            align-items: center;
-            font-size: 1.3em;
-            transition: all 0.5s;
-            .logo_name {
-                flex: 1;
-                a {
-                    text-shadow: 2px 2px 4px rgb(0 0 0 / 15%);
-                    font-weight: 700;
-                    cursor: pointer;
-                    color: #eee;
+            text-align: center;
+            font-family: Titillium Web, "PingFang SC", "Hiragino Sans GB",
+                "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
+            .site_title {
+                margin: 0;
+                color: #fff;
+                font-size: 1.85em;
+                text-shadow: 2px 2px 4px rgb(0 0 0 / 15%);
+                line-height: 1.5;
+            }
+            .site_subtitle {
+                color: #eee;
+                font-size: 1.15em;
+                .typer-cursor {
+                    animation: flash 1.5s linear infinite;
                 }
             }
         }
@@ -145,7 +186,7 @@ export default {
 
             .image {
                 width: 100%;
-                height: 230px ;
+                height: 230px;
                 display: block;
             }
         }
