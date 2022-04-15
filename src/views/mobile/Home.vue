@@ -60,7 +60,7 @@
         <!-- 侧边按钮 -->
         <div class="rightside">
             <div class="">
-                <el-backtop :right="48" :bottom="100" />
+                <el-backtop :right="10" :bottom="100" />
             </div>
         </div>
     </div>
