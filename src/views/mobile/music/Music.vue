@@ -1,44 +1,17 @@
 <template>
-  <div>
+  <div class="musicPage">
     <header>
-      <Nav></Nav>
-    </header>
-    <el-container>
       <!-- 顶部区域 -->
-      <el-header>
-        <!-- 导航菜单 -->
-        <el-row :gutter="10">
-          <el-col :span="17">
-            <el-menu
-              :default-active="activeIndex"
-              class="el-menu-demo"
-              mode="horizontal"
-              text-color="#000000"
-            >
-              <el-menu-item index="1">首页</el-menu-item>
-              <el-menu-item index="2">发现</el-menu-item>
-              <el-menu-item index="4">音乐库</el-menu-item>
-            </el-menu>
-          </el-col>
-          <el-col :span="5">
-            <el-input
+      <div class="topBox d-flex">
+                    <el-input
               prefix-icon="el-icon-search"
               v-model="query"
               placeholder="搜索歌曲"
               @keyup.enter="searchMusic"
             />
-          </el-col>
-          <el-col :span="2">
-            <el-avatar
-              :size="50"
-              src="https://img0.baidu.com/it/u=2896916242,3383900176&fm=26&fmt=auto"
-            ></el-avatar>
-          </el-col>
-        </el-row>
-      </el-header>
-
-      <el-main>
-        <div>音乐推荐66</div>
+      </div>
+    </header>
+   
         <!-- 歌曲列表 -->
         <div class="musicLeft">
           <ul>
@@ -59,9 +32,9 @@
           ></audio>
           <el-button class="play" @click="fangGe">播放 </el-button>
         </div>
-      </el-main>
-      <el-footer><el-button id="out" @click="loginOut">退出</el-button></el-footer>
-    </el-container>
+      
+      <el-button id="out" @click="loginOut">退出</el-button>
+  
   </div>
 </template>
 
@@ -142,6 +115,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.musicPage {
+  .topBox {
+    width: 100vw;
+    height: 8vh;
+    // background-color: pink;
+    // align-items: center;
+  }
+}
+
 
 // 歌曲列表
 .musicLeft {
@@ -169,7 +151,7 @@ export default {
 .audioContrlos {
   position: fixed;
   bottom: 0;
-  height: 5vw;
+  // height: 5vw;
   width: 100%;
   background-image: linear-gradient(45deg, #e66465, #9198e5);
 }
