@@ -46,7 +46,7 @@ a:hover {
   align-items: center;
 }
 .box-card {
-  width: 30vw;
+  width: 100%;
 }
 .image {
   width: 30vw;

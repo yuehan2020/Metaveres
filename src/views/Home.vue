@@ -13,31 +13,30 @@
         <main class="home_layout">
             <!-- 内容区 -->
             <div class="recent_posts">
-                <el-space :size="large" wrap>
-                    <!-- 音乐卡 -->
-                    <Car
-                        title="小涵音乐"
-                        banner="https://z3.ax1x.com/2021/11/16/IfDVvd.png"
-                        ToGo="/music"
-                    ></Car>
-                    <!-- 电商后台管理系统 -->
-                    <Car
-                        title="小涵商城后台管理"
-                        banner="https://z3.ax1x.com/2021/11/16/IfKdN6.png"
-                        ToGo="/backstage"
-                    ></Car>
-                    <!-- 商城卡 -->
-                    <Car
-                        title="小涵商城前台管理"
-                        banner="https://z3.ax1x.com/2021/11/16/IfT21s.png"
-                        ToGo="/shop"
-                    ></Car>
-                    <Car
-                        title="小涵代码练习"
-                        banner="https://img2.baidu.com/it/u=4156000803,3648738866&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
-                        ToGo="/codep"
-                    ></Car>
-                </el-space>
+                <div class="recent_post-item"></div>
+                <!-- 音乐卡 -->
+                <Car
+                    title="小涵音乐"
+                    banner="https://z3.ax1x.com/2021/11/16/IfDVvd.png"
+                    ToGo="/music"
+                ></Car>
+                <!-- 电商后台管理系统 -->
+                <Car
+                    title="小涵商城后台管理"
+                    banner="https://z3.ax1x.com/2021/11/16/IfKdN6.png"
+                    ToGo="/backstage"
+                ></Car>
+                <!-- 商城卡 -->
+                <Car
+                    title="小涵商城前台管理"
+                    banner="https://z3.ax1x.com/2021/11/16/IfT21s.png"
+                    ToGo="/shop"
+                ></Car>
+                <Car
+                    title="小涵代码练习"
+                    banner="https://img2.baidu.com/it/u=4156000803,3648738866&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    ToGo="/codep"
+                ></Car>
             </div>
             <!-- 侧边栏 -->
             <div class="aside_content">
@@ -162,7 +161,6 @@ export default {
         transition: all 0.5s;
         nav {
             background: rgba(255, 255, 255, 0.8);
-
             box-shadow: 0 5px 6px -5px rgb(133 133 133);
             position: absolute;
             top: 0;
@@ -216,15 +214,23 @@ export default {
         // padding: 0 64px;
         margin: 0 auto;
         padding: 2rem 15px;
+        max-width: 1200px;
+
         .recent_posts {
             margin-top: -1rem;
             align-content: flex-start;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            .recent_posts-item {
+                width: 100%;
+                height: 200px;
+                border-radius: 12px 8px 8px 12px;
+            }
         }
         // 侧边样式
         .aside_content {
+            padding-left: 15px;
             width: 25%;
             .card-widget {
                 flex-direction: column;
