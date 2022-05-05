@@ -1,57 +1,57 @@
 <template>
     <div class="home">
         <!-- 导航菜单 -->
-        <div class="navMenu">
-            <el-menu
-                :default-active="activeIndex"
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="handleSelect"
-            >
-                <img class="logo" src="../assets/yasuo.png" />
-                <el-menu-item index="1">首页</el-menu-item>
-                <el-sub-menu index="2">
-                    <template #title>更多</template>
-                    <el-menu-item index="2-1">会员</el-menu-item>
-                    <el-menu-item index="2-2">傻逼</el-menu-item>
-                    <el-menu-item index="2-3">憨批</el-menu-item>
-                    <el-sub-menu index="2-4">
-                        <template #title>item four</template>
-                        <el-menu-item index="2-4-1">item one</el-menu-item>
-                        <el-menu-item index="2-4-2">item two</el-menu-item>
-                        <el-menu-item index="2-4-3">item three</el-menu-item>
-                    </el-sub-menu>
-                </el-sub-menu>
-            </el-menu>
-        </div>
+        <header class="not-top-img show">
+            <nav>
+                <span id="blog_name">
+                    <a href="#">小涵の宇宙</a>
+                </span>
+            </nav>
+        </header>
 
         <!-- 主体区域 -->
         <main class="home_layout">
-            <el-space :size="large" wrap>
-                <!-- 音乐卡 -->
-                <Car
-                    title="小涵音乐"
-                    banner="https://z3.ax1x.com/2021/11/16/IfDVvd.png"
-                    ToGo="/music"
-                ></Car>
-                <!-- 电商后台管理系统 -->
-                <Car
-                    title="小涵商城后台管理"
-                    banner="https://z3.ax1x.com/2021/11/16/IfKdN6.png"
-                    ToGo="/backstage"
-                ></Car>
-                <!-- 商城卡 -->
-                <Car
-                    title="小涵商城后台管理"
-                    banner="https://z3.ax1x.com/2021/11/16/IfT21s.png"
-                    ToGo="/shop"
-                ></Car>
-                <Car
-                    title="小涵代码练习"
-                    banner="https://img2.baidu.com/it/u=4156000803,3648738866&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
-                    ToGo="/codep"
-                ></Car>
-            </el-space>
+            <!-- 内容区 -->
+            <div class="recent_posts">
+                <el-space :size="large" wrap>
+                    <!-- 音乐卡 -->
+                    <Car
+                        title="小涵音乐"
+                        banner="https://z3.ax1x.com/2021/11/16/IfDVvd.png"
+                        ToGo="/music"
+                    ></Car>
+                    <!-- 电商后台管理系统 -->
+                    <Car
+                        title="小涵商城后台管理"
+                        banner="https://z3.ax1x.com/2021/11/16/IfKdN6.png"
+                        ToGo="/backstage"
+                    ></Car>
+                    <!-- 商城卡 -->
+                    <Car
+                        title="小涵商城前台管理"
+                        banner="https://z3.ax1x.com/2021/11/16/IfT21s.png"
+                        ToGo="/shop"
+                    ></Car>
+                    <Car
+                        title="小涵代码练习"
+                        banner="https://img2.baidu.com/it/u=4156000803,3648738866&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                        ToGo="/codep"
+                    ></Car>
+                </el-space>
+            </div>
+            <!-- 侧边栏 -->
+            <div class="aside_content">
+                <!-- 信息盒 -->
+                <div class="card-widget card-info d-flex">
+                    <div class="card-info-avatar">
+                        <el-avatar :size="110" :src="circleUrl"></el-avatar>
+                        <div class="author-info__name">小涵</div>
+                        <div class="author-info__description">
+                            学如逆水行舟，不进则退。
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- 底部区域 -->
@@ -119,7 +119,13 @@ export default {
         Car,
     },
     mounted() {
-       
+
+    },
+    data() {
+        return {
+            // 头像
+            circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
+        }
     },
     methods: {
 
@@ -145,24 +151,104 @@ export default {
 
 <style lang="less" scoped>
 .home {
-    // 导航栏样式
-    .navMenu {
+    font-size: 14px;
+
+    // 导航栏
+    .not-top-img {
         position: relative;
-        top: 0;
         width: 100%;
-        margin-bottom: 90px;
-        /deep/ .el-menu-demo {
-            padding: 0 24px;
-            width: 100vw;
+        margin-bottom: 0.5rem;
+        height: 60px;
+        transition: all 0.5s;
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+
+            box-shadow: 0 5px 6px -5px rgb(133 133 133);
+            position: absolute;
             top: 0;
-            position: fixed;
-            box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+            z-index: 90;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0 36px;
+            width: 100%;
+            height: 60px;
+            font-size: 1.3em;
+            transition: all 0.5s;
+            opacity: 1;
+
+            filter: none;
+            #blog_name {
+                flex: 1;
+                a {
+                    color: #4c4948;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    text-shadow: none;
+                }
+            }
         }
     }
 
+    // 背景样式
+    position: fixed;
+    z-index: -999;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(247, 149, 51, 0.1),
+        rgba(243, 112, 85, 0.1) 15%,
+        rgba(239, 78, 123, 0.1) 30%,
+        rgba(161, 102, 171, 0.1) 44%,
+        rgba(80, 115, 184, 0.1) 58%,
+        rgba(16, 152, 173, 0.1) 72%,
+        rgba(7, 179, 155, 0.1) 86%,
+        rgba(109, 186, 130, 0.1)
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+
     // 主体样式
     .home_layout {
-        padding: 0 64px;
+        display: flex;
+        // padding: 0 64px;
+        margin: 0 auto;
+        padding: 2rem 15px;
+        .recent_posts {
+            margin-top: -1rem;
+            align-content: flex-start;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        // 侧边样式
+        .aside_content {
+            width: 25%;
+            .card-widget {
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                padding: 1rem 1.2rem;
+                border-radius: 8px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
+            }
+            .card-info {
+                .card-info-avatar {
+                    text-align: center;
+                    .author-info__name {
+                        font-weight: 500;
+                        font-size: 1.57em;
+                    }
+                    .author-info__description {
+                        margin-top: -0.3rem;
+                    }
+                }
+            }
+        }
     }
 }
 a {
