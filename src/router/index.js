@@ -8,13 +8,13 @@ const routesPC = [{
         path: '/',
         name: 'Home',
         component: Home,
-        children: [{
-                path: '/codep',
-                name: 'codep',
-                component: () => import('../views/CodeP.vue')
-            }
+        // children: [{
+        //         path: '/codep',
+        //         name: 'codep',
+        //         component: () => import('../views/CodeP.vue')
+        //     }
 
-        ]
+        // ]
     },
     {
         path: '/codep',
@@ -38,7 +38,14 @@ const routesPC = [{
     {
         path: '/backstage',
         name: 'Backstage',
-        component: () => import('../views/Backstage')
+        component: () => import('../views/backStage/Backstage.vue'),
+        children: [{
+                path: '/bHome',
+                name: 'bHome',
+                component: () => import('../views/backStage/bHome.vue')
+            }
+
+        ]
     }
 
 ]

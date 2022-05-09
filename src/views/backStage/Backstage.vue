@@ -109,26 +109,29 @@ export default {
     },
     // 发送登录请求，把用户名和密码给服务器
     handleLogin() {
-      // 这里验证用户名和密码
-      this.$refs.loginForm.validate(valid => {
-        // 符合的话
-        if (valid) {
-          // 按钮有加载效果
-          this.loading = true
-          // 派发一个action带着用户名和密码
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            // 登录成功后路由跳转
-            this.$router.push({ path: this.redirect || '/' })
-            // 关闭loding状态
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
-        } else {
-          console.log('error submit!!')
-          return false
-        }
+      this.$router.push({
+        name:'bHome'
       })
+      // 这里验证用户名和密码
+      // this.$refs.loginForm.validate(valid => {
+      //   // 符合的话
+      //   if (valid) {
+      //     // 按钮有加载效果
+      //     this.loading = true
+      //     // 派发一个action带着用户名和密码
+      //     this.$store.dispatch('user/login', this.loginForm).then(() => {
+      //       // 登录成功后路由跳转
+      //       this.$router.push({ path: this.redirect || '/' })
+      //       // 关闭loding状态
+      //       this.loading = false
+      //     }).catch(() => {
+      //       this.loading = false
+      //     })
+      //   } else {
+      //     console.log('error submit!!')
+      //     return false
+      //   }
+      // })
     },
     // 退出功能
     loginOut () {

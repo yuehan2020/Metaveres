@@ -1,13 +1,7 @@
 <template>
     <div class="home">
         <!-- 导航菜单 -->
-        <header class="not-top-img show">
-            <nav>
-                <span id="blog_name">
-                    <a href="#">小涵の宇宙</a>
-                </span>
-            </nav>
-        </header>
+        <Nav></Nav>
 
         <!-- 主体区域 -->
         <main class="home_layout">
@@ -265,12 +259,14 @@
 // import { ElButton } from 'element-plus'
 import { onMounted, ref } from "vue";
 import Car from "../components/Car.vue";
+import Nav from '../components/Nav.vue'
 // @ is an alias to /src
 
 export default {
     name: "Home",
     components: {
         Car,
+        Nav
     },
     mounted() {
 
@@ -303,6 +299,8 @@ export default {
 };
 </script>
 
+
+
 <style lang="less" scoped>
 .home {
     font-size: 14px;
@@ -320,42 +318,6 @@ export default {
     );
     background-size: cover;
     background-repeat: no-repeat;
-    // 导航栏
-    .not-top-img {
-        position: relative;
-        width: 100%;
-        margin-bottom: 0.5rem;
-        height: 60px;
-        transition: all 0.5s;
-        nav {
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 5px 6px -5px rgb(133 133 133);
-            position: absolute;
-            top: 0;
-            z-index: 90;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 0 36px;
-            width: 100%;
-            height: 60px;
-            font-size: 1.3em;
-            transition: all 0.5s;
-            opacity: 1;
-
-            filter: none;
-            #blog_name {
-                flex: 1;
-                a {
-                    color: #4c4948;
-                    font-weight: bold;
-                    cursor: pointer;
-                    transition: all 0.2s;
-                    text-shadow: none;
-                }
-            }
-        }
-    }
 
     // 主体样式
     .home_layout {
@@ -420,7 +382,7 @@ export default {
         // 侧边样式
         .aside_content {
             padding-left: 15px;
-            width: 50%;
+            width: 80%;
             .card-widget {
                 flex-direction: column;
                 position: relative;
