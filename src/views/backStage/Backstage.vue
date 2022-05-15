@@ -1,8 +1,10 @@
 <template>
   <div class="login-container">
+    <router-view></router-view>
+
     <!-- 登录表单 -->
     <!-- model收集数据，rules验证规则 -->
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
         <h3 class="title">登录</h3>
@@ -51,7 +53,7 @@
         <span> password: any</span>
       </div>
 
-    </el-form>
+    </el-form> 
   </div>
 </template>
 

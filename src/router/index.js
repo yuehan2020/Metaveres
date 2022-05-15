@@ -40,7 +40,7 @@ const routesPC = [{
         name: 'Backstage',
         component: () => import('../views/backStage/Backstage.vue'),
         children: [{
-                path: '/bHome',
+                path: 'bHome',
                 name: 'bHome',
                 component: () => import('../views/backStage/bHome.vue')
             }

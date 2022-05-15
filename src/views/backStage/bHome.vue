@@ -1,6 +1,7 @@
 <template>
   <div>
-666
+    <!-- <router-view></router-view> -->
+    666
   </div>
 </template>
 
