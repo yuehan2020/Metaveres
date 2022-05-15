@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Nav></Nav>
     <el-container>
       <!-- 顶部区域 -->
       <el-header>
@@ -66,6 +67,7 @@
 // import MusicMain from '../components/MusicMain.vue'
 // import { reactive } from 'vue'
 import axios from 'axios'
+import Nav from '../components/Nav.vue'
 export default {
   name: 'Music',
   data () {
@@ -79,8 +81,8 @@ export default {
     }
   },
   components: {
-    // MusicMain
-  },
+    Nav
+},
   methods: {
     // 搜索歌曲
     searchMusic () {

@@ -1,6 +1,6 @@
 <template>
   <div class="shop">
-
+        <Nav></Nav>
         <el-container>
             <el-header>
                 <!-- 快捷导航栏模块 start -->
@@ -526,38 +526,40 @@
 </template>
 
 <script>
-export default {
-  name: 'Shop',
-  data: function () {
-    return {
-      name: 'xiba',
-      input3: '',
-      activeIndex: '1',
-      kuaibao: [
-        '[热门] 别人笑我太疯癫',
-        '我笑他人看不穿',
-        '不见五陵豪杰墓',
-        '无花无酒锄做田'
 
-      ],
-      mainImage: [
-        'https://img2.baidu.com/it/u=2402502061,3875845275&fm=26&fmt=auto',
-        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F6af6f2af9ae88423f785208eec14336031f7b2ca.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639664166&t=ba179720e9fae955afa566f150e8d624',
-        'https://img2.baidu.com/it/u=4127420155,1998691746&fm=26&fmt=auto',
-        'https://img1.baidu.com/it/u=3501172958,1614572876&fm=26&fmt=auto'
-      ]
-    }
-  },
-  methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+import Nav from '../components/Nav.vue'
+export default {
+    name: "Shop",
+    data: function () {
+        return {
+            name: "xiba",
+            input3: "",
+            activeIndex: "1",
+            kuaibao: [
+                "[热门] 别人笑我太疯癫",
+                "我笑他人看不穿",
+                "不见五陵豪杰墓",
+                "无花无酒锄做田"
+            ],
+            mainImage: [
+                "https://img2.baidu.com/it/u=2402502061,3875845275&fm=26&fmt=auto",
+                "https://gimg2.baidu.com/image_search/src=http://i0.hdslb.com/bfs/article/6af6f2af9ae88423f785208eec14336031f7b2ca.jpg&refer=http://i0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639664166&t=ba179720e9fae955afa566f150e8d624",
+                "https://img2.baidu.com/it/u=4127420155,1998691746&fm=26&fmt=auto",
+                "https://img1.baidu.com/it/u=3501172958,1614572876&fm=26&fmt=auto"
+            ]
+        };
     },
-    // 退出功能
-    loginOut () {
-      console.log('退出了')
-      this.$router.push('/')
-    }
-  }
+    methods: {
+        handleSelect(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        // 退出功能
+        loginOut() {
+            console.log("退出了");
+            this.$router.push("/");
+        }
+    },
+    components: { Nav }
 }
 </script>
 
