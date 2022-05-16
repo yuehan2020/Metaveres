@@ -12,11 +12,46 @@
                         <router-link to="/">小涵の宇宙</router-link>
                     </el-tooltip>
                 </span>
-                <div id="menus" v-for="menu in menus.menuName" :key="menu.index">
-                    <div class="menus_item">{{menu}}</div>
+                <div @click="dialogVisible = true" class="search-button">
+                    <el-icon
+                        ><svg
+                            viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg"
+                            data-v-78e17ca8=""
+                        >
+                            <path
+                                fill="currentColor"
+                                d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704z"
+                            ></path></svg></el-icon>
+                    <span  style="padding-left: 0.7rem">搜索</span>
+                </div>
+                <div
+                    id="menus"
+                    v-for="menu in menus.menuName"
+                    :key="menu.index"
+                >
+                    <div class="menus_item">{{ menu }}</div>
                 </div>
             </nav>
         </header>
+
+        <!-- 弹窗 -->
+        <el-dialog
+            v-model="dialogVisible"
+            title="本地搜索"
+            width="30%"
+            
+        >
+            <input type="text">
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="dialogVisible = false">Cancel</el-button>
+                    <el-button type="primary" @click="dialogVisible = false"
+                        >Confirm</el-button
+                    >
+                </span>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
@@ -25,10 +60,11 @@ export default {
     name: 'Nav',
     data() {
         return {
-            menus:{
-                menuName:['首页','关于我']
-            }
-            
+            menus: {
+                menuName: ['首页', '关于我']
+            },
+            dialogVisible:false
+
 
         }
     },
@@ -61,6 +97,9 @@ export default {
         opacity: 1;
 
         filter: none;
+        .search-button {
+            font-size: 0.78em;
+        }
         #blog_name {
             flex: 1;
             a {
@@ -72,6 +111,7 @@ export default {
             }
         }
         #menus {
+            font-size: 0.78em;
             .menus_item {
                 padding-left: 0.7rem;
             }

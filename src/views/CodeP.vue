@@ -2,7 +2,9 @@
     <div class="code">
         <Nav></Nav>
         <div class="car">
-            <router-link to="/bHome">6</router-link>
+            <span>数组去重</span>
+            <input type="text" v-model="waitClean">
+
         </div>
     </div>
 </template>
@@ -12,17 +14,23 @@ import Nav from '../components/Nav.vue'
 
 export default {
     name: 'codep',
-    components:{
+    components: {
         Nav
-    }
+    },
+    data() {
+        return {
+            waitClean:[]
+        }
+    },
 }
 </script>
 
 <style lang="less" scoped>
 .code {
-.car {
-    width: 20%;
+    .car {
+        width: 20vw;
+        height: 20vw;
+        background-color: pink;
+    }
 }
-}
-
 </style>
