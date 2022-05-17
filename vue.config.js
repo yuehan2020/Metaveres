@@ -14,12 +14,12 @@ module.exports = {
     devServer: {
         proxy: {
             '/api': {
-                target: 'https://autumnfish.cn/',
+                target: 'http://localhost:5000',
                 // secure:true,
                 changeOrign: true, // 请求头hots
                 ws: true,
                 pathRewrite: {
-                    '^/api': ''
+                    '^/api': '/'
                 }
             }
         }

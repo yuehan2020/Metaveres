@@ -193,7 +193,7 @@
                 <div class="card-widget card-info d-flex">
                     <div class="card-info-avatar">
                         <el-avatar :size="110" :src="circleUrl"></el-avatar>
-                        <div class="author-info__name">小涵</div>
+                        <div class="author-info__name">{{userInfo.userName}}</div>
                         <div class="author-info__description">
                             学如逆水行舟，不进则退。
                         </div>
@@ -260,7 +260,11 @@
 import { onMounted, ref } from "vue";
 import Car from "../components/Car.vue";
 import Nav from '../components/Nav.vue'
-// @ is an alias to /src
+import { test } from '@/api'
+// import { userInfo } from "os";
+// import { request } from "http";
+import requests from '@/api/request.js';
+
 
 export default {
     name: "Home",
@@ -269,16 +273,27 @@ export default {
         Nav
     },
     mounted() {
+        // test();
+        this.getUserInfo()
 
     },
     data() {
         return {
             // 头像
-            circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
+            circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+            userInfo: {}
         }
     },
     methods: {
-
+        async getUserInfo() {
+            const res = await requests({
+                url: '/user/info',
+                method: 'get',
+                headers: { token: '666666' }
+            })
+            this.userInfo = res.data
+            console.log(res);
+        }
     },
     setup() {
         const activeIndex = ref("1");
@@ -360,7 +375,6 @@ export default {
                                 padding: 10px;
                                 font-size: 16px;
                                 transition: all 0.2s ease-in-out;
-
                             }
                             .magnet_link_context:hover {
                                 padding: 10px 20px;
