@@ -257,70 +257,61 @@
 <script>
 // import { defineComponent } from 'vue'
 // import { ElButton } from 'element-plus'
-import { onMounted, ref } from "vue";
-import Car from "../components/Car.vue";
+import { onMounted, ref } from 'vue'
+import Car from '../components/Car.vue'
 import Nav from '../components/Nav.vue'
 
-import requests from '@/api/request.js';
-
+import requests from '@/api/request.js'
 
 export default {
-    name: "Home",
-    components: {
-        Car,
-        Nav
-    },
-    mounted() {
-        // test();
-        this.getUserInfo()
+  name: 'Home',
+  components: {
+    Car,
+    Nav
+  },
+  mounted () {
+    // test();
+    this.getUserInfo()
+  },
+  data () {
+    return {
+      // 头像
+      circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+      userInfo: {
+        userName: '小涵'
+      }
+    }
+  },
+  methods: {
+    async getUserInfo () {
+      const res = await requests({
+        url: '/user/info',
+        method: 'get',
+        headers: { token: '666666' }
+      })
+      if (res.code = 200) {
+        this.userInfo = res.data
+      } else {
 
-    },
-    data() {
-        return {
-            // 头像
-            circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-            userInfo: {
-                userName:'小涵'
-            }
-        }
-    },
-    methods: {
-        async getUserInfo() {
-            const res = await requests({
-                url: '/user/info',
-                method: 'get',
-                headers: { token: '666666' }
-            })
-            if(res.code = 200)
-            {
-            this.userInfo = res.data
-
-            } else {
-                
-            }
-            
-        }
-    },
-    setup() {
-        const activeIndex = ref("1");
-        const activeIndex2 = ref("1");
-        const handleSelect = (key, keyPath) => {
-            console.log(key, keyPath);
-        };
-        // const picurl1 = ref('https://z3.ax1x.com/2021/11/16/IfDVvd.png')
-        return {
-            activeIndex,
-            activeIndex2,
-            handleSelect,
-            // picurl1
-        };
-
-
-    },
-};
+      }
+    }
+  },
+  setup () {
+    const activeIndex = ref('1')
+    const activeIndex2 = ref('1')
+    const handleSelect = (key, keyPath) => {
+      console.log(key, keyPath)
+    }
+    // const picurl1 = ref('https://z3.ax1x.com/2021/11/16/IfDVvd.png')
+    return {
+      activeIndex,
+      activeIndex2,
+      handleSelect
+      // picurl1
+    }
+  }
+}
 </script>
-
-
 
 <style lang="less" scoped>
 .home {

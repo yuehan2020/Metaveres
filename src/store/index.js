@@ -2,10 +2,10 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    ShowDrawer:false //菜单显示
+    ShowDrawer: false // 菜单显示
   },
   mutations: {
-    updateShowDrawer(state,payload){
+    updateShowDrawer (state, payload) {
       state.ShowDrawer = !state.ShowDrawer
     }
   },

@@ -53,15 +53,15 @@
         <span> password: any</span>
       </div>
 
-    </el-form> 
+    </el-form>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Backstage',
-  data() {
-        // 这里进行表单验证，用户名密码的操作
+  data () {
+    // 这里进行表单验证，用户名密码的操作
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error('Please enter the correct user name'))
@@ -92,14 +92,14 @@ export default {
   },
   watch: {
     $route: {
-      handler: function(route) {
+      handler: function (route) {
         this.redirect = route.query && route.query.redirect
       },
       immediate: true
     }
   },
   methods: {
-        showPwd() {
+    showPwd () {
       if (this.passwordType === 'password') {
         this.passwordType = ''
       } else {
@@ -110,9 +110,9 @@ export default {
       })
     },
     // 发送登录请求，把用户名和密码给服务器
-    handleLogin() {
+    handleLogin () {
       this.$router.push({
-        name:'bHome'
+        name: 'bHome'
       })
       // 这里验证用户名和密码
       // this.$refs.loginForm.validate(valid => {
@@ -191,7 +191,6 @@ export default {
   }
 }
 </style>
-
 
 <style lang="less" scoped>
 // @bg:#2d3a4b;

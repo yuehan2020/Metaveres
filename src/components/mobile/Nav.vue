@@ -40,27 +40,27 @@
 </template>
 
 <script>
-import {useStore} from 'vuex'
+import { useStore } from 'vuex'
 export default {
-    name:'navM',
-    props:{
-        
-    },
-    mounted(){
-    },
-    data() {
-        return {
-            
-        }
-    },
-    setup(){
-        const store = useStore()
-        // 菜单弹出方法
-        const handleShowDrawer = ()=>{
-            store.commit('updateShowDrawer')
-        }
-        return { handleShowDrawer}
+  name: 'navM',
+  props: {
+
+  },
+  mounted () {
+  },
+  data () {
+    return {
+
     }
+  },
+  setup () {
+    const store = useStore()
+    // 菜单弹出方法
+    const handleShowDrawer = () => {
+      store.commit('updateShowDrawer')
+    }
+    return { handleShowDrawer }
+  }
 }
 </script>
 
@@ -80,7 +80,7 @@ export default {
         height: 100%;
     }
     .logo_name {
-        
+
         a {
             text-shadow: 2px 2px 4px rgb(0 0 0 / 15%);
             font-weight: 700;

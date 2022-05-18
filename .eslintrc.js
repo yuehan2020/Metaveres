@@ -19,7 +19,7 @@ module.exports = {
     'no-debugger': 'off'
   },
 
-  'extends': [
+  extends: [
     'plugin:vue/vue3-essential',
     '@vue/standard'
   ]

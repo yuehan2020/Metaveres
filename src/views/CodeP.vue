@@ -49,18 +49,18 @@ import {
   Document,
   Menu as IconMenu,
   Location,
-  Setting,
+  Setting
 } from '@element-plus/icons-vue'
 export default {
-    name: 'codep',
-    components: {
-        Nav
-    },
-    data() {
-        return {
-            waitClean:[]
-        }
-    },
+  name: 'codep',
+  components: {
+    Nav
+  },
+  data () {
+    return {
+      waitClean: []
+    }
+  }
 }
 </script>
 

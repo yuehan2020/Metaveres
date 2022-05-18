@@ -55,7 +55,7 @@
             title="要快乐"
             direction="rtl"
             size="75%"
-            
+
         >
             <span>Hi</span>
         </el-drawer>
@@ -63,61 +63,56 @@
 </template>
 
 <script>
-import {useStore} from 'vuex'
-import {toRef,reactive } from 'vue'
-import Nav from "../../components/mobile/Nav.vue"
+import { useStore } from 'vuex'
+import { toRef, reactive } from 'vue'
+import Nav from '../../components/mobile/Nav.vue'
 
 export default {
-    name: 'HomeM',
-    setup(){
-        const store = useStore()
-        return {
-            store
-        }
-    },
-    data() {
-        return {
-            currentDate: new Date(),
-            Sentence: '', //今日诗词
-            showSentence: '',
-            index: 0,
-        }
-    },
-    mounted() {
-
-        this.loadSentence()
-
-
-        setInterval(() => {
-
-            this.autoTyping()
-
-        }, 300)
-    },
-    methods: {
-        ToMusic() {
-
-            this.$router.push({ name: 'MusicM' })
-        },
-        // 加载今日诗词
-        loadSentence() {
-            const jinrishici = require('jinrishici');
-            jinrishici.load(result => {
-                this.Sentence = result.data.content
-            }, err => {
-                console.log(err);
-            })
-        },
-        // 打字效果
-        autoTyping() {
-            this.index++
-            this.showSentence = this.Sentence.slice(0, this.index)
-            // this.index = this.showSentence === this.Sentence ? 0 : this.index
-        }
-    },
-    components: {
-        Nav
+  name: 'HomeM',
+  setup () {
+    const store = useStore()
+    return {
+      store
     }
+  },
+  data () {
+    return {
+      currentDate: new Date(),
+      Sentence: '', // 今日诗词
+      showSentence: '',
+      index: 0
+    }
+  },
+  mounted () {
+    this.loadSentence()
+
+    setInterval(() => {
+      this.autoTyping()
+    }, 300)
+  },
+  methods: {
+    ToMusic () {
+      this.$router.push({ name: 'MusicM' })
+    },
+    // 加载今日诗词
+    loadSentence () {
+      const jinrishici = require('jinrishici')
+      jinrishici.load(result => {
+        this.Sentence = result.data.content
+      }, err => {
+        console.log(err)
+      })
+    },
+    // 打字效果
+    autoTyping () {
+      this.index++
+      this.showSentence = this.Sentence.slice(0, this.index)
+      // this.index = this.showSentence === this.Sentence ? 0 : this.index
+    }
+  },
+  components: {
+    Nav
+  }
 }
 </script>
 

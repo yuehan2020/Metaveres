@@ -40,7 +40,7 @@
             v-model="dialogVisible"
             title="本地搜索"
             width="30%"
-            
+
         >
             <input type="text">
             <template #footer>
@@ -57,17 +57,16 @@
 
 <script>
 export default {
-    name: 'Nav',
-    data() {
-        return {
-            menus: {
-                menuName: ['首页', '关于我']
-            },
-            dialogVisible:false
+  name: 'Nav',
+  data () {
+    return {
+      menus: {
+        menuName: ['首页', '关于我']
+      },
+      dialogVisible: false
 
-
-        }
-    },
+    }
+  }
 
 }
 </script>

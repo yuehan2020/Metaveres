@@ -10,7 +10,7 @@ import 'element-plus/dist/index.css'
 import axios from 'axios'
 
 // 引入全局样式
-import "../styles/global.less"
+import '../styles/global.less'
 
 // 字体文件
 
@@ -33,5 +33,3 @@ app.use(ElementPlusIconsVue)
 // app.use(naive)
 
 // createApp(App).use(store).use(router).mount('#app')
-
-

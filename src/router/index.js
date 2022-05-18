@@ -7,7 +7,7 @@ import Home from '../views/Home.vue'
 const routesPC = [{
         path: '/',
         name: 'Home',
-        component: Home,
+        component: Home
         // children: [{
         //         path: '/codep',
         //         name: 'codep',
@@ -39,13 +39,11 @@ const routesPC = [{
         path: '/backstage',
         name: 'Backstage',
         component: () => import('../views/backStage/Backstage.vue'),
-        children: [{
-                path: 'bHome',
-                name: 'bHome',
-                component: () => import('../views/backStage/bHome.vue')
-            }
-
-        ]
+    },
+    {
+        path: '/bHome',
+        name: 'bHome',
+        component: () => import('../views/backStage/bHome.vue'),
     }
 
 ]
@@ -61,11 +59,11 @@ const rotersM = [{
         name: 'MusicM',
         component: () => import('../views/mobile/music/Music.vue')
 
-    },
+    }
 
 ]
 
-var routes = [];
+var routes = []
 if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
     routes = rotersM
 } else {
@@ -76,8 +74,6 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes
 })
-
-
 
 // 路由守卫
 // router.beforeEach((to, from, next) => {
