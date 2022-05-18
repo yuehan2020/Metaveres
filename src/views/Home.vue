@@ -260,9 +260,7 @@
 import { onMounted, ref } from "vue";
 import Car from "../components/Car.vue";
 import Nav from '../components/Nav.vue'
-import { test } from '@/api'
-// import { userInfo } from "os";
-// import { request } from "http";
+
 import requests from '@/api/request.js';
 
 
@@ -281,7 +279,9 @@ export default {
         return {
             // 头像
             circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-            userInfo: {}
+            userInfo: {
+                userName:'小涵'
+            }
         }
     },
     methods: {
