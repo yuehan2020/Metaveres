@@ -291,8 +291,14 @@ export default {
                 method: 'get',
                 headers: { token: '666666' }
             })
+            if(res.code = 200)
+            {
             this.userInfo = res.data
-            console.log(res);
+
+            } else {
+                
+            }
+            
         }
     },
     setup() {
