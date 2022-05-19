@@ -1,16 +1,18 @@
 <template>
   <div>
-    <!-- <router-view></router-view> -->
+    <Nav></Nav>
     666
   </div>
 </template>
 
 <script>
+import Nav from '../../components/mobile/Nav.vue';
 export default {
-  name: 'bHome'
+    name: "bHome",
+    components: { Nav }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 
 </style>

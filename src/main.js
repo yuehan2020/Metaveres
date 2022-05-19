@@ -12,6 +12,8 @@ import axios from 'axios'
 // 引入全局样式
 import '../styles/global.less'
 
+// 注册全局组件
+
 // 字体文件
 
 // 引入字体
@@ -30,6 +32,7 @@ app.mount('#app')
 app.use(ElementPlus)
 app.use(axios)
 app.use(ElementPlusIconsVue)
+
 // app.use(naive)
 
 // createApp(App).use(store).use(router).mount('#app')
