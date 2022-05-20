@@ -3,6 +3,7 @@
         <Nav></Nav>
         <!-- 顶部区域 -->
         <main>
+          <!-- 菜单 -->
             <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
