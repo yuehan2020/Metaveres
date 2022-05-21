@@ -23,9 +23,23 @@ const routesPC = [{
     },
     // 音乐路由
     {
+        redirect:'/musicHome',
         path: '/music',
         name: 'Music',
-        component: () => import('../views/Music')
+        component: () => import('../views/music/Music.vue'),
+        children: [{
+                path: '/musicHome',
+                name: 'musicHome',
+                component: () => import('../views/music/musicHome.vue')
+            },
+            {
+                path: '/musicLogin',
+                name: 'musicLogin',
+                component: () => import('../views/music/musicLogin.vue')
+            },
+
+
+        ]
     },
     {
         path: '/shop',

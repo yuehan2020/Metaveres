@@ -285,7 +285,7 @@ export default {
   methods: {
     async getUserInfo () {
       const res = await requests({
-        url: '/user/info',
+        url: 'http://127.0.0.1:5000/user/info',
         method: 'get',
         headers: { token: '666666' }
       })

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // 创建一个axios的实例
 const service = axios.create({
-  baseURL: '/api', // url = base url + request url
+  baseURL: '', // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
