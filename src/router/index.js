@@ -37,6 +37,16 @@ const routesPC = [{
                 name: 'musicLogin',
                 component: () => import('../views/music/musicLogin.vue')
             },
+            {
+                path: '/musicDT',
+                name: 'musicDT',
+                component: () => import('../views/music/musicDT.vue')
+            },
+            {
+                path: '/musicMy',
+                name: 'musicMy',
+                component: () => import('../views/music/musicMy.vue')
+            },
 
 
         ]

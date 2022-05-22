@@ -37,8 +37,8 @@ export default {
         }
     },
     methods: {
-        onSumbit() {
-
+        onSubmit() {
+            console.log('登录');
         }
     },
 }

@@ -21,11 +21,11 @@
                             ><span>首页</span></el-menu-item
                         >
 
-                        <el-menu-item index="3">
+                        <el-menu-item index="musicDT">
                             <el-icon><Promotion /></el-icon>
                             <span>动态</span>
                         </el-menu-item>
-                        <el-menu-item index="4">
+                        <el-menu-item index="musicMy">
                             <el-icon><UserFilled /></el-icon>
                             <span>我的</span>
                         </el-menu-item>
