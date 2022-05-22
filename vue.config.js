@@ -1,5 +1,8 @@
 'use strict'
 const path = require('path')
+// 打包优化
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+let isProduction = process.env.NODE_EMV
 
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -24,15 +27,49 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
+  css:{
+    loaderOptions:{
+      sass:{
+        prependData:`@import "./src/common/css/global.scss";`
       }
     }
+  },
+  configureWebpack: config=>{
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    if (isProduction=='production') {
+      
+      // 代码压缩
+      config.plugins.push(
+        new UglifyJsPlugin({
+          uglifyOptions:{
+            // 删除console
+            warnings:false,
+            compress:{
+              drop_debugger:true,
+              drop_console:true,
+              pure_funce:['console.log']
+            }
+          },
+          sourceMap:false,
+          parallel:true
+        })
+      )
+    }
+
+    
+
+
+
+    return{
+      name: name,
+      resolve: {
+        alias: {
+          '@': resolve('src')
+        }
+      }
+    }
+
   }
 
 }

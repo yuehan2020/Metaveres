@@ -2,9 +2,11 @@
     <div class="common-layout">
         <el-container>
             <el-aside :width="iscollapse ? '64px' : '200px'">
-                <div class="toggle-button"  :style="rote" @click="toggleChange">    <el-icon size="size" color="color">
-      <ArrowLeftBold />
-    </el-icon></div>
+                <div class="toggle-button" :style="rote" @click="toggleChange">
+                    <el-icon size="size" color="color">
+                        <ArrowLeftBold />
+                    </el-icon>
+                </div>
                 <!-- 菜单 -->
                 <div class="MenuBox">
                     <el-menu
@@ -74,8 +76,8 @@ export default {
             // 歌曲网址
             musicUrl: '',
             iscollapse: false,
-            rote:{
-                
+            rote: {
+
             }
         }
     },
@@ -90,8 +92,8 @@ export default {
     },
     methods: {
         // 搜索歌曲
-        toggleChange(){
-            this.iscollapse=!this.iscollapse
+        toggleChange() {
+            this.iscollapse = !this.iscollapse
         },
         searchMusic() {
             const that = this
@@ -185,18 +187,17 @@ export default {
     min-height: 400px;
 }
 // 折叠按钮
-.el-aside{
-    transition: all .3s;
-    background-color: #F6F7F8;
-.toggle-button {
-  background-color: #F6F7F8;
-  font-size: 10px;
-  line-height: 24px;
-  color: #61666D;
-  text-align: center;
-  letter-spacing: 0.2em;
-  cursor: pointer;
+.el-aside {
+    transition: all 0.3s;
+    background-color: #f6f7f8;
+    .toggle-button {
+        background-color: #f6f7f8;
+        font-size: 10px;
+        line-height: 24px;
+        color: #61666d;
+        text-align: center;
+        letter-spacing: 0.2em;
+        cursor: pointer;
+    }
 }
-}
-
 </style>

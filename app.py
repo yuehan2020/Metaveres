@@ -10,6 +10,18 @@ static_url_path=""
 # 跨域请求
 CORS(app, resource={r'/*': {'origins': '*'}})
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+        return jsonify({
+            "code": 200,
+            "data": {
+                "id": "1",
+                "userName": "小涵",
+                "userType": 1
+            }
+        })
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html',name='index')
@@ -44,7 +56,7 @@ def user_info():
     """
    
     return jsonify({
-            "code": 0,
+            "code": 200,
             "data": {
                 "id": "1",
                 "userName": "小涵",

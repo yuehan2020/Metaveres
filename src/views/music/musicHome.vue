@@ -1,7 +1,6 @@
 <template>
     <div>
         <main>
-
             <el-input
                 prefix-icon="el-icon-search"
                 v-model="query"
@@ -42,7 +41,8 @@
 <script>
 // import MusicMain from '../components/MusicMain.vue'
 // import { reactive } from 'vue'
-
+import url from '@/api/url.js'
+import {getRequest} from'@/api/api.js'
 // 图标
 
 import axios from 'axios'
@@ -63,7 +63,9 @@ export default {
             musicList: [],
             // 歌曲网址
             musicUrl: '',
-            iscollapse: false
+            iscollapse: false,
+				navId: 58100, //导航栏的id
+
         }
     },
     components: {
@@ -111,9 +113,23 @@ export default {
             } else {
                 audio.pause()
             }
-        }
+        },
+        // 获取视频数据
+        async getVideo(navId) {
+            let data =this.navId
+            let videoDatas = await getRequest(
+                url.video,
+                data
+            )
+            console.log(videoDatas);
+            // this.offset++;
+            // this.videoDatas = videoDatas.datas
+            // console.log(this.videoDatas)
+        },
     },
-    mounted() { },
+    mounted() { 
+        this.getVideo()
+    },
     setup() {
 
     }
