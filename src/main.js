@@ -10,7 +10,7 @@ import 'element-plus/dist/index.css'
 import axios from 'axios'
 
 // 引入全局样式
-import '../styles/global.less'
+import '@/common/css/global.less'
 
 // 注册全局组件
 

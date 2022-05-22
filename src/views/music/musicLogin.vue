@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'musicLogin',
     data() {
@@ -38,7 +39,24 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log('登录');
+            if (!this.form.name) {
+                this.msgFn('warning','请输入账号')
+                return
+            }else if(!this.form.password){
+                this.msgFn('warning','请输入密码')
+                return
+
+            }else {
+                console.log('请求登录');
+            }
+
+        },
+        // 弹窗
+        msgFn(type, text) {
+            this.$message({
+                message: text,
+                type
+            })
         }
     },
 }
