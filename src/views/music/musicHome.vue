@@ -43,6 +43,7 @@
 // import { reactive } from 'vue'
 import url from '@/api/url.js'
 import {getRequest} from'@/api/api.js'
+import request from '@/api/request'
 // 图标
 
 import axios from 'axios'
@@ -116,19 +117,21 @@ export default {
         },
         // 获取视频数据
         async getVideo(navId) {
-            let data =this.navId
+            let params =this.navId
             let videoDatas = await getRequest(
                 url.video,
-                data
+                params
             )
             console.log(videoDatas);
             // this.offset++;
             // this.videoDatas = videoDatas.datas
             // console.log(this.videoDatas)
         },
+
     },
     mounted() { 
-        this.getVideo()
+        // this.getVideo()
+        
     },
     setup() {
 

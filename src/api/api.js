@@ -6,8 +6,8 @@ export function postRequest(url,data){
         requestOfPost(url,data).then(res=>resolve(res))
     }).catch(error=>reject(error))
 }
-export function getRequest(url,data){
+export function getRequest(url,query){
     return new Promise((resolve,reject)=>{
-        requestOfGet(url,data).then(res=>resolve(res))
+        requestOfGet(url,query).then(res=>resolve(res))
     }).catch(error=>reject(error))
 }

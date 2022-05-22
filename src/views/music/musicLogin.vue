@@ -1,6 +1,6 @@
 <template>
     <div class="loginBox">
-        <div class="loginWay">
+        <div class="loginWay d-flex">
             <span>密码登录</span>
             <span>|</span>
             <span>短信登录</span>
@@ -86,8 +86,11 @@ export default {
     align-items: center;
     .loginWay {
         height: 30px;
-        line-height: 30px;
+        // line-height: 30px;
         color: #505050;
+        span {
+            flex: 1;
+        }
     }
 }
 .test {

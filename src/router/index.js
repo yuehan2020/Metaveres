@@ -4,7 +4,20 @@ import {
 } from 'vue-router'
 import Home from '../views/Home.vue'
 
-const routesPC = [{
+
+const routerList = []
+//引入路由
+function importAll(r) {
+    r.keys().forEach((key) => routerList.push(r(key).default))
+}
+//动态引入
+//1. 路径
+//2. 是否匹配子级文件
+//3. 规则
+importAll(require.context('./', false, /\.routes\.js/))
+const routesPC = [
+    ...routerList,
+    {
         path: '/',
         name: 'Home',
         component: Home
@@ -20,36 +33,6 @@ const routesPC = [{
         path: '/codep',
         name: 'codep',
         component: () => import('../views/CodeP.vue')
-    },
-    // 音乐路由
-    {
-        redirect:'/musicHome',
-        path: '/music',
-        name: 'Music',
-        component: () => import('../views/music/Music.vue'),
-        children: [{
-                path: '/musicHome',
-                name: 'musicHome',
-                component: () => import('../views/music/musicHome.vue')
-            },
-            {
-                path: '/musicLogin',
-                name: 'musicLogin',
-                component: () => import('../views/music/musicLogin.vue')
-            },
-            {
-                path: '/musicDT',
-                name: 'musicDT',
-                component: () => import('../views/music/musicDT.vue')
-            },
-            {
-                path: '/musicMy',
-                name: 'musicMy',
-                component: () => import('../views/music/musicMy.vue')
-            },
-
-
-        ]
     },
     {
         path: '/shop',
@@ -100,12 +83,18 @@ const router = createRouter({
 })
 
 // 路由守卫
-// router.beforeEach((to, from, next) => {
-//   if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-//     window.location.href = '/mobile.html/'
-//     return
-//   }
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+    let token = sessionStorage.getItem('token')
+    if (to.meta.require) {
+        if (token) {
+            // 允许进入
+            next()
+        } else {
+            // 跳登录
+        }
+    }else {
+        next()
+    }
+})
 
 export default router
