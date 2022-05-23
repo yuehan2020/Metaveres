@@ -43,7 +43,8 @@ export default {
         async onSubmit() {
             if (!this.form.phone) {
                 this.msgFn('warning','请输入账号')
-                return
+                // throw new Error('hahah')
+                return 
             }else if(!this.form.password){
                 this.msgFn('warning','请输入密码')
                 return
