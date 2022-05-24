@@ -193,10 +193,40 @@
                 <div class="card-widget card-info d-flex">
                     <div class="card-info-avatar">
                         <el-avatar :size="110" :src="circleUrl"></el-avatar>
-                        <div class="author-info__name">{{userInfo.userName}}</div>
+                        <div class="author-info__name">
+                            {{ userInfo.userName }}
+                        </div>
                         <div class="author-info__description">
                             学如逆水行舟，不进则退。
                         </div>
+                    </div>
+                    <div class="card-info-data d-flex">
+                        <div class="card-info-data-item">
+                            <a href="#">
+                                <div class="headline">系统作品</div>
+                                <div class="length-num">3</div>
+                            </a>
+                        </div>
+                        <div class="card-info-data-item">
+                            <a href="#">
+                                <div class="headline">系统作品</div>
+                                <div class="length-num">3</div>
+                            </a>
+                        </div>
+                        <div class="card-info-data-item">
+                            <a href="#">
+                                <div class="headline">系统作品</div>
+                                <div class="length-num">3</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 信息盒end -->
+                <!-- 简介盒 -->
+                <div class="card-widget jjbox">
+                    <div class="item-headline"><span>简介</span></div>
+                    <div class="announcement_content">
+                        这里是小涵空间，记录知识与作品。欢迎光临
                     </div>
                 </div>
             </div>
@@ -264,52 +294,52 @@ import Nav from '../components/Nav.vue'
 import requests from '@/api/request.js'
 
 export default {
-  name: 'Home',
-  components: {
-    Car,
-    Nav
-  },
-  mounted () {
-    // test();
-    this.getUserInfo()
-  },
-  data () {
-    return {
-      // 头像
-      circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-      userInfo: {
-        userName: '小涵'
-      }
-    }
-  },
-  methods: {
-    async getUserInfo () {
-      const res = await requests({
-        url: 'http://127.0.0.1:5000/api/user/info',
-        method: 'get',
-        headers: { token: '666666' }
-      })
-      if (res.code = 200) {
-        this.userInfo = res.data
-      } else {
+    name: 'Home',
+    components: {
+        Car,
+        Nav
+    },
+    mounted() {
+        // test();
+        this.getUserInfo()
+    },
+    data() {
+        return {
+            // 头像
+            circleUrl: 'https://img0.baidu.com/it/u=2833019745,1702226611&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+            userInfo: {
+                userName: '小涵'
+            }
+        }
+    },
+    methods: {
+        async getUserInfo() {
+            const res = await requests({
+                url: 'http://127.0.0.1:5000/api/user/info',
+                method: 'get',
+                headers: { token: '666666' }
+            })
+            if (res.code = 200) {
+                this.userInfo = res.data
+            } else {
 
-      }
+            }
+        }
+    },
+    setup() {
+        const activeIndex = ref('1')
+        const activeIndex2 = ref('1')
+        const handleSelect = (key, keyPath) => {
+            console.log(key, keyPath)
+        }
+        // const picurl1 = ref('https://z3.ax1x.com/2021/11/16/IfDVvd.png')
+        return {
+            activeIndex,
+            activeIndex2,
+            handleSelect
+            // picurl1
+        }
     }
-  },
-  setup () {
-    const activeIndex = ref('1')
-    const activeIndex2 = ref('1')
-    const handleSelect = (key, keyPath) => {
-      console.log(key, keyPath)
-    }
-    // const picurl1 = ref('https://z3.ax1x.com/2021/11/16/IfDVvd.png')
-    return {
-      activeIndex,
-      activeIndex2,
-      handleSelect
-      // picurl1
-    }
-  }
 }
 </script>
 
@@ -405,6 +435,7 @@ export default {
                 box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
             }
             .card-info {
+                height: 242px;
                 .card-info-avatar {
                     text-align: center;
                     /deep/ .el-avatar:hover {
@@ -416,8 +447,23 @@ export default {
                         font-size: 1.57em;
                     }
                     .author-info__description {
-                        margin-top: -0.3rem;
+                        // margin-top: -0.3rem;
                     }
+                }
+                .card-info-data {
+                    justify-content: space-around;
+                    text-align: center;
+                    .card-info-data-item {
+
+                    }
+                }
+            }
+            .jjbox {
+                margin-top: 1rem;
+                height: 297px;
+                .item-headline {
+                    padding-bottom: 0.3rem;
+                    font-size: 1.2em;
                 }
             }
         }

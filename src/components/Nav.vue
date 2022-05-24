@@ -42,12 +42,12 @@
             width="30%"
 
         >
-            <input type="text">
+            <el-input v-model="navSearch" placeholder="请输入内容"></el-input>
             <template #footer>
                 <span class="dialog-footer">
-                    <el-button @click="dialogVisible = false">Cancel</el-button>
+                    <el-button @click="dialogVisible = false">取消</el-button>
                     <el-button type="primary" @click="dialogVisible = false"
-                        >Confirm</el-button
+                        >搜索</el-button
                     >
                 </span>
             </template>
@@ -63,7 +63,8 @@ export default {
       menus: {
         menuName: ['首页', '关于我']
       },
-      dialogVisible: false
+      dialogVisible: false,
+      navSearch:''
 
     }
   }

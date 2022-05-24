@@ -16,6 +16,7 @@ export default createStore({
   //     }, 2000)
   //   }
   },
+  getters:{},
   modules: {
   }
 })
