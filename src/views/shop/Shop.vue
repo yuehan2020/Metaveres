@@ -527,7 +527,7 @@
 
 <script>
 
-import Nav from '../components/Nav.vue'
+import Nav from '@/components/Nav.vue'
 export default {
   name: 'Shop',
   data: function () {

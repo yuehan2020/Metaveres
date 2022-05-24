@@ -11,6 +11,8 @@ import axios from 'axios'
 
 // 引入全局样式
 import '@/common/css/global.less'
+import '@/common/css/element-ui.scss'
+
 
 // 注册全局组件
 
