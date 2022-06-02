@@ -30,7 +30,7 @@
                     v-for="menu in menus.menuName"
                     :key="menu.index"
                 >
-                    <div class="menus_item">{{ menu }}</div>
+                    <div class="menus_item" @click="toDetail">{{ menu }}</div>
                 </div>
             </nav>
         </header>
@@ -61,13 +61,19 @@ export default {
   data () {
     return {
       menus: {
-        menuName: ['首页', '关于我']
+        menuName: ['首页', '关于']
       },
       dialogVisible: false,
       navSearch:''
 
     }
-  }
+  },
+  methods: {
+    //   导航栏跳转事件
+      toDetail(){
+         this.$router.push('/about')
+      }
+  },
 
 }
 </script>
